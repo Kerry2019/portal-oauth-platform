@@ -48,8 +48,9 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
                 .and()
                 // 自定义登录页面，这里配置了 loginPage, 就会通过 LoginController 的 login 接口加载登录页面
                 .formLogin()
-                //http://localhost:8083/login
                 .loginPage("/uaa/login")
+                //当用户直接访问登录页时，登录成功后默认重定向到defaultSuccessUrl
+                .defaultSuccessUrl("https://www.baidu.com/")
                 .permitAll()
                 //加上了 successHandler、failureHandler、exceptionHandling 会导致跳转页面有问题
                 .failureHandler(appLoginFailureHandler)

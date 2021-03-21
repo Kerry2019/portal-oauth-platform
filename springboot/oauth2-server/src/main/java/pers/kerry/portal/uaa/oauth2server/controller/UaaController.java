@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pers.kerry.portal.uaa.oauth2server.dao.PaasDao;
+import pers.kerry.portal.uaa.oauth2server.pojo.UserEO;
+import pers.kerry.portal.uaa.oauth2server.pojo.UserProfileDTO;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -46,13 +48,15 @@ public class UaaController {
      */
     @ResponseBody
     @GetMapping("/parseJwt")
-    public Object getCurrentUser1(Authentication authentication, HttpServletRequest request) throws UnsupportedEncodingException {
+    public UserProfileDTO getCurrentUser1(Authentication authentication, HttpServletRequest request) throws UnsupportedEncodingException {
         String header = request.getHeader("Authorization");
         String token = header
                 .replace("bearer ","")
                 .replace("Bearer ","");
         Claims claims = Jwts.parser().setSigningKey(JWT_SIGN_KEY.getBytes("UTF-8")).parseClaimsJws(token).getBody();
-        return claims;
+        String username=(String) claims.get("user_name");
+        UserEO userEO=paasDao.getUserByUsername(username);
+        return new UserProfileDTO(userEO.getUsername(),userEO.getEmail(),userEO.getName());
     }
 
 

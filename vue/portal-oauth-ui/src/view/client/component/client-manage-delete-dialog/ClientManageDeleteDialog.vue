@@ -22,7 +22,7 @@ export default {
   props: {
     visible: Boolean,
     dark: Boolean,
-    item: Object
+    item: Object,
   },
   data() {
     return {};
@@ -40,15 +40,14 @@ export default {
       //   clientId: this.item.clientId,
       //   clientSecret: this.item.clientSecret
       // };
-      deleteClient(this.item).then(response => {
+      deleteClient(this.item).then((response) => {
         this.$emit("queryData");
       });
       this.$emit("changeVisible", false);
-    }
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

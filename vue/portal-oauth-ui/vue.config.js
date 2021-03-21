@@ -4,4 +4,4 @@ module.exports = {
     //proxy: 'http://localhost:8081'
     //proxy: 'http://kerrysmec.cn:8081'
   },
-}
+};

@@ -10,23 +10,21 @@ import UserManageTable from "@/view/user/component/user-manage-table/UserManageT
 export default {
   name: "UserManage",
   components: {
-    UserManageTable
+    UserManageTable,
   },
   props: {},
   data() {
     return {
       headData: {
-        drawer: false
-      }
+        drawer: false,
+      },
     };
   },
   watch: {},
   computed: {},
   methods: {},
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-
-</style>
+<style></style>

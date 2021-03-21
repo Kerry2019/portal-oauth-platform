@@ -78,7 +78,7 @@ export default {
   components: {
     ClientManageEditDialog,
     ClientManageDeleteDialog,
-    ClientManageViewDialog
+    ClientManageViewDialog,
   },
   props: {},
   data: () => ({
@@ -105,43 +105,43 @@ export default {
       {
         text: "客户端编码",
         value: "clientId",
-        align: "left"
+        align: "left",
       },
       {
         text: "密钥",
         value: "clientSecret",
-        align: "left"
+        align: "left",
       },
       {
         text: "授权范围",
         value: "authorizedGrantTypes",
-        align: "left"
+        align: "left",
       },
       {
         text: "重定向url",
         value: "webServerRedirectUri",
-        align: "left"
+        align: "left",
       },
       {
         text: "AccessToken有效期",
         value: "accessTokenValidity",
         align: "left",
-        width: 80
+        width: 80,
       },
       {
         text: "RefreshToken有效期",
         value: "refreshTokenValidity",
         align: "left",
-        width: 80
+        width: 80,
       },
       {
         text: "",
         value: "action",
-        width: 120
-      }
+        width: 120,
+      },
     ],
     //表数据
-    tableData: []
+    tableData: [],
     //是否授权 autoapprove 值列表
   }),
 
@@ -152,8 +152,8 @@ export default {
       handler() {
         this.queryTableData();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
 
   created() {},
@@ -168,9 +168,9 @@ export default {
       const params = {
         page: page,
         pageSize: itemsPerPage,
-        key: this.searchValue
+        key: this.searchValue,
       };
-      queryClients(params).then(response => {
+      queryClients(params).then((response) => {
         //  console.log('response:'+JSON.stringify(response));
         this.tableData = response.data.data.result;
         this.pageAmount = response.data.data.count;
@@ -224,8 +224,8 @@ export default {
 
     changeViewVisible(value) {
       this.viewDialogVisible = value;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less" scoped>

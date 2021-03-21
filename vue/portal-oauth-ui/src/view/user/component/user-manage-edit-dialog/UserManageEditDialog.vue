@@ -11,13 +11,18 @@
             <v-row>
               <v-col cols="12" sm="6" md="6">
                 <v-text-field
-                  v-if="type=='NEW'"
+                  v-if="type === 'NEW'"
                   required
                   v-model="item.username"
                   :rules="[() => !!item.username || '必填']"
                   label="账号"
                 ></v-text-field>
-                <v-text-field v-if="type!='NEW'" disabled v-model="item.username" label="账号"></v-text-field>
+                <v-text-field
+                  v-if="type !== 'NEW'"
+                  disabled
+                  v-model="item.username"
+                  label="账号"
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6">
                 <v-text-field
@@ -28,7 +33,20 @@
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6">
-                <v-text-field required v-model="item.name" label="姓名" hide-details></v-text-field>
+                <v-text-field
+                  required
+                  v-model="item.name"
+                  label="姓名"
+                  hide-details
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="6">
+                <v-text-field
+                  required
+                  v-model="item.email"
+                  :rules="[() => !!item.email || '必填']"
+                  label="邮箱"
+                ></v-text-field>
               </v-col>
             </v-row>
           </v-form>
@@ -55,21 +73,22 @@ export default {
     item: {
       username: "",
       password: "",
-      name: ""
+      name: "",
+      email: "",
     },
-    dark: Boolean
+    dark: Boolean,
   },
   data() {
     return {
       //表单 校验
-      formValid: false
+      formValid: false,
     };
   },
   watch: {},
   computed: {
     title() {
       return this.type === "NEW" ? "新增" : "编辑";
-    }
+    },
   },
   methods: {
     //取消
@@ -82,25 +101,24 @@ export default {
       if (this.$refs.form.validate()) {
         //NEW 新增
         if (this.type == "NEW") {
-          addUser(this.item).then(response => {
+          addUser(this.item).then((response) => {
             this.$refs.form.reset();
             this.$emit("queryData");
           });
         }
         //EDIT 编辑
         else {
-          updateUser(this.item).then(response => {
+          updateUser(this.item).then((response) => {
             this.$refs.form.reset();
             this.$emit("queryData");
           });
         }
         this.$emit("changeVisible", false);
       }
-    }
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

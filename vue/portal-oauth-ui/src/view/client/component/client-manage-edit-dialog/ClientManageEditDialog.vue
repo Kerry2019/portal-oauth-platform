@@ -11,13 +11,18 @@
             <v-row>
               <v-col cols="12" sm="6" md="6">
                 <v-text-field
-                  v-if="type=='NEW'"
+                  v-if="type == 'NEW'"
                   required
                   v-model="item.clientId"
                   :rules="[() => !!item.clientId || '必填']"
                   label="客户端编号"
                 ></v-text-field>
-                <v-text-field v-if="type!='NEW'" disabled v-model="item.clientId" label="客户端编号"></v-text-field>
+                <v-text-field
+                  v-if="type != 'NEW'"
+                  disabled
+                  v-model="item.clientId"
+                  label="客户端编号"
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6">
                 <v-text-field
@@ -103,13 +108,13 @@ export default {
       authorizedGrantTypesList: [
         "password",
         "refresh_token",
-        "authorization_code"
+        "authorization_code",
       ],
       webServerRedirectUri: "",
       accessTokenValidity: 0,
-      refreshTokenValidity: 0
+      refreshTokenValidity: 0,
     },
-    dark: Boolean
+    dark: Boolean,
   },
   data() {
     return {
@@ -128,17 +133,17 @@ export default {
       authorizedGrantTypesItems: [
         "password",
         "refresh_token",
-        "authorization_code"
+        "authorization_code",
       ],
       //表单 校验
-      formValid: false
+      formValid: false,
     };
   },
   watch: {},
   computed: {
     title() {
       return this.type === "NEW" ? "新增" : "编辑";
-    }
+    },
   },
   methods: {
     //取消
@@ -151,25 +156,24 @@ export default {
       if (this.$refs.form.validate()) {
         //NEW 新增
         if (this.type == "NEW") {
-          addClient(this.item).then(response => {
+          addClient(this.item).then((response) => {
             this.$refs.form.reset();
             this.$emit("queryData");
           });
         }
         //EDIT 编辑
         else {
-          updateClient(this.item).then(response => {
+          updateClient(this.item).then((response) => {
             this.$refs.form.reset();
             this.$emit("queryData");
           });
         }
         this.$emit("changeVisible", false);
       }
-    }
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

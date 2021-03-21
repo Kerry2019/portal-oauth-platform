@@ -25,7 +25,11 @@
 
     <v-list nav dense>
       <v-list-item-group v-model="item" color="primary">
-        <v-list-item v-for="(item, i) in items" :key="i"  @click="onRouter(item)">
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          @click="onRouter(item)"
+        >
           <v-list-item-icon>
             <v-icon v-text="item.icon"></v-icon>
           </v-list-item-icon>
@@ -36,7 +40,6 @@
   </v-navigation-drawer>
   <!-- </v-card> -->
 </template>
-
 
 <script>
 export default {
@@ -49,31 +52,30 @@ export default {
         {
           title: "客户端",
           icon: "mdi-table-edit",
-          router: "client"
+          router: "client",
         },
         {
           title: "登录页",
           icon: "mdi-web",
-          router: "loginPage"
+          router: "loginPage",
         },
         {
           title: "账号",
           icon: "mdi-account-multiple-outline",
-          router: "user"
-        }
-      ]
+          router: "user",
+        },
+      ],
     };
   },
   watch: {},
   computed: {},
   methods: {
-     onRouter(item){
-      this.$router.push({name: item.router})
-    }
+    onRouter(item) {
+      this.$router.push({ name: item.router });
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

@@ -67,7 +67,7 @@ export default {
   name: "UserManageTable",
   components: {
     UserManageEditDialog,
-    UserManageDeleteDialog
+    UserManageDeleteDialog,
   },
   props: {},
   data: () => ({
@@ -85,7 +85,6 @@ export default {
     deleteDialogVisible: false,
     deleteDialogDark: false,
     deleteDialogItem: {},
-  
 
     //表头
     headers: [
@@ -93,29 +92,35 @@ export default {
         text: "用户名",
         value: "username",
         align: "left",
-        width: 200
+        width: 200,
       },
       {
         text: "密码",
         value: "password",
         align: "left",
-        width: 200
+        width: 200,
       },
       {
         text: "姓名",
         value: "name",
         align: "left",
-        width: 200
+        width: 200,
       },
-       {
+      {
+        text: "邮箱",
+        value: "email",
+        align: "left",
+        width: 200,
+      },
+      {
         text: "",
         value: "action",
         align: "center",
-        width: 150
-      }
+        width: 150,
+      },
     ],
     //表数据
-    tableData: []
+    tableData: [],
     //是否授权 autoapprove 值列表
   }),
 
@@ -126,8 +131,8 @@ export default {
       handler() {
         this.queryTableData();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
 
   created() {},
@@ -142,9 +147,9 @@ export default {
       const params = {
         page: page,
         pageSize: itemsPerPage,
-        key: this.searchValue
+        key: this.searchValue,
       };
-      queryUsers(params).then(response => {
+      queryUsers(params).then((response) => {
         //  console.log('response:'+JSON.stringify(response));
         this.tableData = response.data.data.result;
         this.pageAmount = response.data.data.count;
@@ -190,8 +195,8 @@ export default {
 
     changeViewVisible(value) {
       this.viewDialogVisible = value;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less" scoped>

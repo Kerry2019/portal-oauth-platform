@@ -1,5 +1,5 @@
-const dark = false
+const dark = false;
 
 export default {
-  dark
-}
+  dark,
+};

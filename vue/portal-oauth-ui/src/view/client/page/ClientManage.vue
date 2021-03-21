@@ -10,23 +10,21 @@ import ClientManageTable from "@/view/client/component/client-manage-table/Clien
 export default {
   name: "ClientManage",
   components: {
-    ClientManageTable
+    ClientManageTable,
   },
   props: {},
   data() {
     return {
       headData: {
-        drawer: false
-      }
+        drawer: false,
+      },
     };
   },
   watch: {},
   computed: {},
   methods: {},
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-
-</style>
+<style></style>

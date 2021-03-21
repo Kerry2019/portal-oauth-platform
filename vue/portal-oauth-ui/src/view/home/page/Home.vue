@@ -1,6 +1,6 @@
 <template>
-  <v-card  style="min-height: 100%;" :dark="themeDark">
-    <div class="d-none d-sm-flex pc-table-div" >
+  <v-card style="min-height: 100%" :dark="themeDark">
+    <div class="d-none d-sm-flex pc-table-div">
       <left-drawer></left-drawer>
       <router-view />
     </div>
@@ -22,25 +22,24 @@ export default {
   components: {
     LeftDrawer,
     BottomDrawer,
-    SpeedDial
+    SpeedDial,
   },
   props: {},
   data() {
     return {
-      themeDark:Global.dark,
+      themeDark: Global.dark,
     };
   },
   watch: {},
   computed: {},
   methods: {
-    changeDark(value){
-      Global.dark=value;
-      this.themeDark=value;
-    }
+    changeDark(value) {
+      Global.dark = value;
+      this.themeDark = value;
+    },
   },
-  created() {
-  },
-  mounted() {}
+  created() {},
+  mounted() {},
 };
 </script>
 <style>
@@ -59,5 +58,4 @@ export default {
 .mobile-table-div {
   margin-top: 1rem;
 }
-
 </style>

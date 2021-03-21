@@ -12,10 +12,20 @@
           <v-form>
             <v-row>
               <v-col cols="12" sm="6" md="5">
-                <v-text-field v-model="item.clientSecret" label="密钥" hide-details readonly></v-text-field>
+                <v-text-field
+                  v-model="item.clientSecret"
+                  label="密钥"
+                  hide-details
+                  readonly
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6">
-                <v-text-field v-model="basicAuth" label="Basic Authorization" hide-details readonly></v-text-field>
+                <v-text-field
+                  v-model="basicAuth"
+                  label="Basic Authorization"
+                  hide-details
+                  readonly
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="12" md="12">
                 <v-textarea
@@ -36,7 +46,7 @@
                   prefix
                   persistent-hint
                   :hint="clientOauthUri"
-                  v-if="item.webServerRedirectUri==null"
+                  v-if="item.webServerRedirectUri == null"
                 >
                   <template v-slot:append-outer>
                     <v-btn
@@ -60,7 +70,7 @@
                   readonly
                   persistent-hint
                   :hint="clientOauthUri"
-                  v-if="item.webServerRedirectUri!=null"
+                  v-if="item.webServerRedirectUri != null"
                 >
                   <template v-slot:append-outer>
                     <v-btn
@@ -84,7 +94,9 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-btn class="mx-2" small dark fab color="pink" @click="onVisit">访问</v-btn>
+        <v-btn class="mx-2" small dark fab color="pink" @click="onVisit"
+          >访问</v-btn
+        >
         <div class="flex-grow-1"></div>
         <v-btn text @click="onCancel">CLOSE</v-btn>
       </v-card-actions>
@@ -103,16 +115,16 @@ export default {
       clientId: "",
       clientSecretPlain: "",
       webServerRedirectUri: "",
-      clientDescription: ""
+      clientDescription: "",
     },
-    dark: Boolean
+    dark: Boolean,
   },
   data() {
     return {
       oauthUri:
-        "http://kerrysmec.cn:8081/oauth/authorize?response_type=code&",
+        process.env.VUE_APP_API + "/oauth/authorize?response_type=code&",
       copyVisible: true,
-      redirectUri: ""
+      redirectUri: "",
     };
   },
   watch: {},
@@ -142,13 +154,13 @@ export default {
           this.item.webServerRedirectUri
         );
       }
-    }
+    },
   },
   methods: {
     onCopySuccess() {
       this.copyVisible = false;
       var that = this;
-      setTimeout(function() {
+      setTimeout(function () {
         that.copyVisible = true;
       }, 2000);
     },
@@ -174,11 +186,10 @@ export default {
           this.redirectUri;
       }
       window.open(url, "_blank");
-    }
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

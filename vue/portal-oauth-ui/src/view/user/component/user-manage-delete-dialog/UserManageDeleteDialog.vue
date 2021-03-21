@@ -22,7 +22,7 @@ export default {
   props: {
     visible: Boolean,
     dark: Boolean,
-    item: Object
+    item: Object,
   },
   data() {
     return {};
@@ -36,15 +36,14 @@ export default {
     },
     //确认
     onConfirm() {
-      deleteUser(this.item).then(response => {
+      deleteUser(this.item).then((response) => {
         this.$emit("queryData");
       });
       this.$emit("changeVisible", false);
-    }
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

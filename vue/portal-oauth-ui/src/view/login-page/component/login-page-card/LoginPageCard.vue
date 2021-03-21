@@ -12,9 +12,17 @@
         </v-card-text>
 
         <v-card-actions>
-          <v-switch v-model="use" :value="card.use" label="选用" color="indigo" hide-details></v-switch>
+          <v-switch
+            v-model="use"
+            :value="card.use"
+            label="选用"
+            color="indigo"
+            hide-details
+          ></v-switch>
           <div class="flex-grow-1"></div>
-          <v-icon v-if="use==card.use" color="green">mdi-check-decagram</v-icon>
+          <v-icon v-if="use == card.use" color="green"
+            >mdi-check-decagram</v-icon
+          >
         </v-card-actions>
       </v-card>
     </v-col>
@@ -36,27 +44,27 @@ export default {
           img: require("@/assets/img/loginTmpBlack.png"),
           use: "loginBlack",
           title: "门户登录页",
-          content: "黑色"
+          content: "黑色",
         },
         {
           img: require("@/assets/img/loginTmpBlue.png"),
           use: "loginBlue",
           title: "门户登录页",
-          content: "蓝色"
+          content: "蓝色",
         },
         {
           img: require("@/assets/img/loginTmpGreen.png"),
           use: "loginGreen",
           title: "门户登录页",
-          content: "绿色"
+          content: "绿色",
         },
         {
           img: require("@/assets/img/loginTmpRed.png"),
           use: "loginRed",
           title: "门户登录页",
-          content: "红色"
-        }
-      ]
+          content: "红色",
+        },
+      ],
     };
   },
   watch: {
@@ -68,19 +76,19 @@ export default {
       //  }
       if (val != null) {
         const params = {
-          loginPage: this.use
+          loginPage: this.use,
         };
-        updateLoginPage(params).then(response => {});
+        updateLoginPage(params).then((response) => {});
       }
-    }
+    },
   },
   computed: {},
   methods: {
     initLoginPage() {
-      getConfig().then(response => {
+      getConfig().then((response) => {
         this.use = response.data.data.loginPage;
       });
-    }
+    },
   },
   created() {},
   mounted() {
@@ -88,8 +96,7 @@ export default {
       this.cols = 12;
     }
     this.initLoginPage();
-  }
+  },
 };
 </script>
-<style >
-</style>
+<style></style>

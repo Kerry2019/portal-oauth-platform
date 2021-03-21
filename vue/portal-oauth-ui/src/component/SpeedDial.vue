@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       fab: false,
-      dark: false
+      dark: false,
     };
   },
   watch: {},
@@ -57,13 +57,13 @@ export default {
     //全屏 npm install screenfull --save
     onFullScreen() {
       screenfull.toggle();
-    }
+    },
   },
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
+<style>
 .dial {
   padding-bottom: 5%;
 }

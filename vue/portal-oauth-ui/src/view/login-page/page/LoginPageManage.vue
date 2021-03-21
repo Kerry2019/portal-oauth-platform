@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%;margin-bottom:5rem;">
+  <div style="width: 100%; margin-bottom: 5rem">
     <login-page-card></login-page-card>
   </div>
 </template>
@@ -9,7 +9,7 @@ import LoginPageCard from "@/view/login-page/component/login-page-card/LoginPage
 export default {
   name: "LoginPageManage",
   components: {
-    LoginPageCard
+    LoginPageCard,
   },
   props: {},
   data() {
@@ -19,8 +19,7 @@ export default {
   computed: {},
   methods: {},
   created() {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-<style >
-</style>
+<style></style>

@@ -23,6 +23,9 @@ public class UserEO {
 
     private String name;
 
+    @Field("email")
+    private String email;
+
     /**
      * 创建时间
      */
@@ -60,5 +63,13 @@ public class UserEO {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

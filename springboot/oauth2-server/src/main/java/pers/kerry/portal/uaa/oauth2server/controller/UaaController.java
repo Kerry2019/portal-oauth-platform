@@ -48,7 +48,9 @@ public class UaaController {
     @GetMapping("/parseJwt")
     public Object getCurrentUser1(Authentication authentication, HttpServletRequest request) throws UnsupportedEncodingException {
         String header = request.getHeader("Authorization");
-        String token = header.replace("bearer ","");
+        String token = header
+                .replace("bearer ","")
+                .replace("Bearer ","");
         Claims claims = Jwts.parser().setSigningKey(JWT_SIGN_KEY.getBytes("UTF-8")).parseClaimsJws(token).getBody();
         return claims;
     }

@@ -210,8 +210,10 @@ public class PaasDao {
      */
     public void updateUser(UserEO user) {
         Query query = new Query(Criteria.where("username").is(user.getUsername()));
-        Update update = new Update().set("password", user.getPassword())
-                .set("name",user.getName());
+        Update update = new Update()
+                .set("password", user.getPassword())
+                .set("name",user.getName())
+                .set("email",user.getEmail());
         mongoTemplate.updateFirst(query, update, UserEO.class);
     }
 

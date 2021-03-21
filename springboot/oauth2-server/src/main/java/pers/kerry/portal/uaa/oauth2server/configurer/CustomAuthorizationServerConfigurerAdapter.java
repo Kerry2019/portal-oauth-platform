@@ -52,16 +52,25 @@ public class CustomAuthorizationServerConfigurerAdapter extends AuthorizationSer
     private OauthClientServiceImpl oauthClientServiceImpl;
 
 
-
+    /**
+     * 加上 allowFormAuthenticationForClients() 后，授权码模式中获取token时，可以直接将client_id、client_secret作为参数传入
+     * @param oauthServer
+     * @throws Exception
+     */
     @Override
     public void configure(final AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+        oauthServer
+                .tokenKeyAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()")
+                .allowFormAuthenticationForClients();
     }
 
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(oauthClientServiceImpl).clients(oauthClientServiceImpl);
+        clients
+                .withClientDetails(oauthClientServiceImpl)
+                .clients(oauthClientServiceImpl);
     }
 
 
@@ -72,7 +81,7 @@ public class CustomAuthorizationServerConfigurerAdapter extends AuthorizationSer
      * @throws Exception
      */
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.tokenStore(tokenStore)
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsServiceImpl);

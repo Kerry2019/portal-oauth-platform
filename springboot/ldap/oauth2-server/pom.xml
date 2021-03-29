@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <version>2.0.15.RELEASE</version>
+            <version>2.0.18.RELEASE</version>
         </dependency>
         <!--        freemarker,自定义登录页使用-->
         <dependency>

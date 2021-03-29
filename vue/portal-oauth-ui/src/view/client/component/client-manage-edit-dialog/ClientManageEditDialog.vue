@@ -109,6 +109,7 @@ export default {
         "password",
         "refresh_token",
         "authorization_code",
+        "implicit",
       ],
       webServerRedirectUri: "",
       accessTokenValidity: 0,
@@ -134,6 +135,7 @@ export default {
         "password",
         "refresh_token",
         "authorization_code",
+        "implicit",
       ],
       //表单 校验
       formValid: false,

@@ -1,0 +1,40 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      cookie:
+        name: OAUTH2SESSION
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/portal
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          ldap: debug
+        data:
+          ldap: debug
+
+custom:
+  ldap:
+    security:
+      search-base: cn=Users
+      search-filter: cn={0}
+      url: ldap://localhost:389/dc=example,dc=com
+      manage-dn: cn=admin,dc=example,dc=com
+      manage-password: 123456
+    data:
+      search-base: cn=Users,dc=example,dc=com
+      url: ldap://localhost:389
+      manage-dn: cn=admin,dc=example,dc=com
+      manage-password: 123456
+#logging:
+#  level:
+#    root: debug
+
